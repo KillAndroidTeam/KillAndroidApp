@@ -1,0 +1,36 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+apply plugin: 'AndResGuard'
+
+buildscript {
+    repositories {
+        jcenter()
+        google()
+    }
+    dependencies {
+        classpath 'com.tencent.mm:AndResGuard-gradle-plugin:1.2.21'
+    }
+}
+
+apply {
+    from "${project.rootDir.path}/buildApp.gradle"
+
+}
+gradle.taskGraph.whenReady {
+    it.allTasks.each { task ->
+        println("Task Name : ${task.name}")
+        task.dependsOn.each{ t->
+            println "-----${t.class}"
+        }
+        //def outputFileStr = task.outputs.files.getAsPath();
+        //def inputFileStr = task.inputs.files.getAsPath()
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    api project(path: ':baselib:markwon')
+    api project(path: ':notes:note_fx')
+}

@@ -1,0 +1,7 @@
+include ':MainApp'
+include ':baselib:utilslibrary'
+include ':baselib:markwon'
+
+rootProject.name = "MyAndroidNote"
+include ':notes:note_fx'
+

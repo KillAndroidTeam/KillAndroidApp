@@ -1,0 +1,56 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
+android {
+    compileSdkVersion 32
+    buildToolsVersion "30.0.3"
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 32
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        applicationVariants {
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api Config.depConfig.blankj.utilcode
+    api Config.depConfig.blankj.rxbus
+    api Config.depConfig.androidx.appcompat
+    api Config.depConfig.androidx.annotation
+    annotationProcessor 'androidx.annotation:annotation:1.2.0'
+    api Config.depConfig.androidx.documentfile
+    api Config.depConfig.androidx.constraintlayout
+    api Config.depConfig.androidx.corektx
+    api Config.depConfig.androidx.recyclerview
+    api Config.depConfig.kotlin
+    api Config.depConfig.androidpdfviewer
+
+    api Config.depConfig.umeng.apm
+    api Config.depConfig.umeng.asms
+    api Config.depConfig.umeng.common
+
+//    api Config.depConfig.leakcanary.debugApi
+    api Config.depConfig.glide
+    api Config.depConfig.PhotoView
+
+
+//    api 'com.blankj:utilcodex:1.30.6'
+//    api 'androidx.appcompat:appcompat:1.3.0'
+//    api 'androidx.annotation:annotation:1.2.0'
+//    api 'androidx.documentfile:documentfile:1.0.1'
+
+//    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+//    api 'androidx.core:core-ktx:1.7.0'
+//    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.21"
+//    api "androidx.recyclerview:recyclerview:1.2.1"
+//    api 'androidx.constraintlayout:constraintlayout:2.0.4'
+//    api 'com.github.chrisbanes:PhotoView:2.3.0'
+//    testImplementation "com.android.tools.build:gradle:4.0.0"
+
+}

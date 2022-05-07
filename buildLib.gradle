@@ -1,0 +1,39 @@
+GLog.d("buildLib.gradle")
+apply {
+    plugin "com.android.library"
+    plugin "kotlin-android"
+    plugin "kotlin-android-extensions"
+    plugin 'kotlin-kapt'
+}
+android {
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    GLog.d("buildLib.gradle:android")
+    compileSdkVersion Config.compileSdkVersion
+    defaultConfig {
+        GLog.d("buildLib.gradle:android:defaultConfig")
+        minSdkVersion Config.minSdkVersion
+        targetSdkVersion Config.targetSdkVersion
+        versionCode Config.versionCode
+        versionName Config.versionName
+        multiDexEnabled true
+
+        externalNativeBuild {
+            cmake {
+                cppFlags ''
+            }
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    externalNativeBuild {
+        cmake {
+            path file('src/main/cpp/CMakeLists.txt')
+            version '3.18.1'
+        }
+    }
+}
